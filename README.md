@@ -60,12 +60,15 @@ Advanced algorithm
 - Deepspeed algorithm
 - Llama.cpp
 
-￼
-mps: 0:00:08.79 to 0:00:26.21
-￼
-cuda: 0:00:2.37 to 0:00:4.18 (Nvidia GPU has the best performance)
-￼
-cpu with deep speed algorithm: 0:00:13.81 to 0:00:35.24
+
+[MacBook Pro M3 Max](doc/google_gemma-2_2b-it_do_sample_max_new_tokens512_temperature07_topp09_topk0_repetition_penalty1_mps.csv)
+mps: 0:00:08.79 to 0:00:26.21\
+
+[NVIDIA GPU RTX 3090](doc/google_gemma-2_2b-it_do_sample_max_new_tokens512_temperature07_topp09_topk0_repetition_penalty1_cuda.csv)
+cuda: 0:00:2.37 to 0:00:4.18 (Nvidia GPU has the best performance)\
+
+[CPU](doc/google_gemma-2_2b-it_do_sample_max_new_tokens512_temperature07_topp09_topk0_repetition_penalty1_cpu_deepspeed.csv)
+cpu with deep speed algorithm: 0:00:13.81 to 0:00:35.24\
 ￼
 
 NVIDIA GPU seems to be the best performing model. So we improved the performance for google/gemma-2_2b-it from 16.74 to 0:00:50.59 on my local machine to 0:00:2.37 to 0:00:4.18.
@@ -78,7 +81,7 @@ However the team finds that we need the system to perform fast and to be able to
 
 llama.cpp is an open-source tool with minimal setup with state of the art performance. Here we used llama.cpp on a local machine MacBook Pro M3 Max (14 -core CPU, 30-core GPU and 16-core Neural Engine, 36GB unified memory) (mps). 
 
-￼
+[lamma.cpp on MacBook Pro M3 Max](doc/google_gemma-2_2b-it_max_new_tokens128_temperature07_topp09_topk0_repeat_penalty1_mps_llamacpp.csv)
 llama.cpp on mps: 0:00:02.50 to 0:00:17.40
 
 This is a significant improvement from hugging face transformer mps: 0:00:08.79 to 0:00:26.21 to llama.cpp implementation of the model llama.cpp on mps: 0:00:02.50 to 0:00:17.40 on a local machine MacBook Pro M3 Max.
