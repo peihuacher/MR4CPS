@@ -31,13 +31,11 @@ This is a documentation of the process of tests and determine which is the best 
     - meta-llama/Meta-Llama-3.1-8B-Instruct
     - microsoft/Phi-3.5-mini-instruct
 3. Results
-￼
-google/gemma-2_2b-it: 16.74 to 0:00:50.59
-￼
-meta-llama/Meta-Llama-31-8B-Instruct: 0:00:58.18 to 0:04:31
-￼
+
+![Comparing different images](best_models.png "Comparing different images")
+google/gemma-2_2b-it: 16.74 to 0:00:50.59\
+meta-llama/Meta-Llama-31-8B-Instruct: 0:00:58.18 to 0:04:31\
 microsoft/Phi-3.5-mini-instruct: 0:00:25.90 to 1:16.53
-￼
 
 Notebook for installation and testing models
 
