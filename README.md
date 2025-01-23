@@ -135,12 +135,11 @@ At the same time, we need to provide an API call. Llama.cpp provides HTTP server
 
 
 ##### Installation and run on Windows 11 OS with NVIDIA GPU RTX 2080ti
-1. Download and install miniconda
+1. Download and install miniconda in CMD using administrator. 
 	```
 	curl https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe -o miniconda.exe
 	```
-	open anaconda powershell prompt using administrator
-2. Create condo environment 
+2. Create condo environment in Anaconda PowerShell Prompt using administrator.
 	```
 	conda create -n conda-llm
 	conda activate conda-llm
