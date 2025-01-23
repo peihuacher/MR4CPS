@@ -90,11 +90,12 @@ At the same time, we need to provide an API call. Llama.cpp provides HTTP server
 <report on performance>
 
 ##### Installation and run on MacBook Pro M3 Max
-1. Download and install miniconda.  ```
+1. Download and install miniconda.
+   	```
 	wget https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-MacOSX-arm64.sh
 	bash Miniforge3-MacOSX-arm64.sh
 	```
-2. Create condo environment and activate. 
+3. Create condo environment and activate. 
 	```
 	conda create -n llama python=3.9.16 -y
 	conda activate llama
@@ -105,7 +106,7 @@ At the same time, we need to provide an API call. Llama.cpp provides HTTP server
 	pip install llama_cpp_agent
 	git clone https://github.com/ggerganov/llama.cpp.git
 	```
-3. Download model and create guff
+4. Download model and create guff
 	```
 	pip install safetensors
 	pip install sentencepiece
@@ -114,7 +115,7 @@ At the same time, we need to provide an API call. Llama.cpp provides HTTP server
 	ln -s /google/gemma-2-2b-it/ llama.cpp/models/gemma-2-2b-it
 	python convert_hf_to_gguf.py --outtype bf16 google/gemma-2-2b-it/ --outfile models/gemma-2-2b-it/gemma-2-2b-it-bf16.gguf
 	```
-4. Run llama.cpp server
+5. Run llama.cpp server
 	```
 	sudo apt install cmake
 	cd ~/projects/lift/llama.cpp
@@ -123,7 +124,7 @@ At the same time, we need to provide an API call. Llama.cpp provides HTTP server
 	./build/bin/llama-server --list-devices
 	./build/bin/Release/llama-server -m ./models/gemma-2-2b-it/gemma-2-2b-it-bf16.gguf -c 2048 --host 0.0.0.0 --port 8082 --temp 0.7 --top-k 6 --top-p 0.95 --min_p 0.05 --n_predict 128 --repeat-penalty 1 --prompt "Please respond as a patient in a hospital ward. You are feeling dehydrated." --seed 1234 --flash-attn --device Metal
 	```
-5. Call the service
+6. Call the service
 	```
 	curl --request POST --header "Content-Type: application/json" --data "{\"messages\":,\"n_predict\": 128,\"temperature\":0.7,\"top-k\":6,\"top-p\":0.95,\"min_p\":0.05,\"repeat_penalty\":1,\"model\":\"gemma-2-2b-it\",\"stop\":[\"exit\"],\"n_keep\":10,\"dynatemp_range\":0,\"dynatemp_exponent\":1,\"typical_p\":1,\"xtc_probability\":0,\"xtc_threshold\":0.1,\"repeat_last_n\":64,\"presence_penalty\":0,\"frequency_penalty\":0,\"dry_multiplier\":0,\"dry_base\":1.75,\"dry_allowed_length\":2,\"dry_penalty_last_n\":-1,\"cache_prompt\":true}" --url http://localhost:8082/chat/completions
 	```
