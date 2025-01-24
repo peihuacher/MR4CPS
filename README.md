@@ -17,9 +17,9 @@ This is a documentation of the process of tests and determine which is the best 
 [2. Improve the speed of response](#2-improve-the-speed-of-response)\
 	- [llama.cpp](#llamacpp) \
 		- [Installation and run on MacBook Pro M3 Max](#installation-and-run-on-macbook-pro-m3-max)\
-		- [Installation and run on Windows 11 OS with NVIDIA GPU RTX 2080ti](#installation-and-run-on-windows-11-os-with-nvidia-gpu-rtx-2080ti)\
+		- [Installation and run on Windows 11 OS with NVIDIA GPU RTX 2080ti](#installation-and-run-on-windows-11-os-with-nvidia-gpu-rtx-2080ti)
 
-[3. Use local model for speech-to-text and text-to-speech](#3-use-local-model-for-speech-to-text-and-text-to-speech)\
+[3. Use local model for speech-to-text and text-to-speech](#3-use-local-model-for-speech-to-text-and-text-to-speech)
 
 [4. Evaluate user input](#4-evaluate-user-input)
 
@@ -62,10 +62,10 @@ Advanced algorithm
 
 
 [MacBook Pro M3 Max](doc/google_gemma-2_2b-it_do_sample_max_new_tokens512_temperature07_topp09_topk0_repetition_penalty1_mps.csv)
-mps: 0:00:08.79 to 0:00:26.21\
+mps: 0:00:08.79 to 0:00:26.21
 
 [NVIDIA GPU RTX 3090](doc/google_gemma-2_2b-it_do_sample_max_new_tokens512_temperature07_topp09_topk0_repetition_penalty1_cuda.csv)
-cuda: 0:00:2.37 to 0:00:4.18 (Nvidia GPU has the best performance)\
+cuda: 0:00:2.37 to 0:00:4.18 (Nvidia GPU has the best performance)
 
 [CPU](doc/google_gemma-2_2b-it_do_sample_max_new_tokens512_temperature07_topp09_topk0_repetition_penalty1_cpu_deepspeed.csv)
 cpu with deep speed algorithm: 0:00:13.81 to 0:00:35.24\
