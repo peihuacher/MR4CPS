@@ -155,7 +155,7 @@ At the same time, we need to provide an API call. Llama.cpp provides HTTP server
  	cd ~/Documents/llm
  	git clone https://github.com/ggerganov/llama.cpp.git
  	```
-5. Install Visual Studio 2022 with
+5. Install Visual Studio 2022 with Individual components
     * C++ core features
     * C++ CMake tools for Windows
     * MSVC v143 - VS 2022 C++ x64/x86 build tools (Latest)
