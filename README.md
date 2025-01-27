@@ -141,9 +141,12 @@ At the same time, we need to provide an API call. Llama.cpp provides HTTP server
 	```
 2. Download and install git for Windows.
 3. Git clone llama.cpp 
-	``` mkdir ~/Documents/llm cd ~/Documents/llm git clone https://github.com/ggerganov/llama.cpp.git ```
-4. Install Visual Studio, Visual Studio c++, C++ for Windows.
-5. If you have a GPU, reinstall nvidia CUDA toolkit.
+	```
+	mkdir ~/Documents/llm cd ~/Documents/llm
+ 	git clone https://github.com/ggerganov/llama.cpp.git
+ 	```
+5. Install Visual Studio, Visual Studio c++, C++ for Windows.
+6. If you have a GPU, reinstall nvidia CUDA toolkit.
 3. Create condo environment in Anaconda PowerShell Prompt using administrator.
 	```
 	conda create -n conda-llm
