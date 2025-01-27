@@ -158,7 +158,8 @@ At the same time, we need to provide an API call. Llama.cpp provides HTTP server
 5. Install Visual Studio 2022 with
     * C++ core features
     * C++ CMake tools for Windows
-    * Windows 11 SDK
+    * MSVC v143 - VS 2022 C++ x64/x86 build tools (Latest)
+    * Windows 11 SDK (10.0.26100.0)
 6. If you have a GPU, download and reinstall NVIDIA CUDA toolkit.
     * Download and install CUDA Toolkit 12.6.3 from NVIDIA’s official website.
     * Verify the installation with ```nvcc --version``` and ```nvidia-smi```.
