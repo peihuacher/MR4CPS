@@ -139,15 +139,7 @@ At the same time, we need to provide an API call. Llama.cpp provides HTTP server
 	```
 	curl https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe -o miniconda.exe
 	```
-2. Download and install git for Windows.
-3. Git clone llama.cpp 
-	```
-	mkdir ~/Documents/llm cd ~/Documents/llm
- 	git clone https://github.com/ggerganov/llama.cpp.git
- 	```
-5. Install Visual Studio, Visual Studio c++, C++ for Windows.
-6. If you have a GPU, reinstall nvidia CUDA toolkit.
-3. Create condo environment in Anaconda PowerShell Prompt using administrator.
+2. Create condo environment in Anaconda PowerShell Prompt using administrator.
 	```
 	conda create -n conda-llm
 	conda activate conda-llm
@@ -156,7 +148,16 @@ At the same time, we need to provide an API call. Llama.cpp provides HTTP server
 	pip install safetensors
 	pip install tqdm
 	```
-4. Download model and create guff.
+3. Download and install git for Windows.
+4. Git clone llama.cpp 
+	```
+	mkdir ~/Documents/llm
+ 	cd ~/Documents/llm
+ 	git clone https://github.com/ggerganov/llama.cpp.git
+ 	```
+5. Install Visual Studio, Visual Studio c++, C++ for Windows.
+6. If you have a GPU, reinstall nvidia CUDA toolkit.
+7. Download model and create guff.
 	```
 	cd ~/Documents/llm/llama.cpp/
 	huggingface-cli download google/gemma-2-2b-it --local-dir google/gemma-2-2b-it
