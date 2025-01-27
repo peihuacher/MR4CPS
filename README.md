@@ -160,7 +160,7 @@ At the same time, we need to provide an API call. Llama.cpp provides HTTP server
     * C++ CMake tools for Windows
     * Windows 11 SDK
 6. If you have a GPU, download and reinstall NVIDIA CUDA toolkit.
-    * Download and install CUDA Toolkit 12.7 from NVIDIA’s official website.
+    * Download and install CUDA Toolkit 12.6.3 from NVIDIA’s official website.
     * Verify the installation with ```nvcc --version``` and ```nvidia-smi```.
 7. Download model and create guff.
 	```
