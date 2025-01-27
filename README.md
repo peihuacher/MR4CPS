@@ -96,7 +96,7 @@ At the same time, we need to provide an API call. Llama.cpp provides HTTP server
 	wget https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-MacOSX-arm64.sh
 	bash Miniforge3-MacOSX-arm64.sh
 	```
-3. Create condo environment and activate. 
+2. Create condo environment and activate. 
 	```
 	conda create -n llama python=3.9.16 -y
 	conda activate llama
@@ -107,7 +107,7 @@ At the same time, we need to provide an API call. Llama.cpp provides HTTP server
 	pip install llama_cpp_agent
 	git clone https://github.com/ggerganov/llama.cpp.git
 	```
-4. Download model and create guff
+3. Download model and create guff
 	```
 	pip install safetensors
 	pip install sentencepiece
@@ -116,7 +116,7 @@ At the same time, we need to provide an API call. Llama.cpp provides HTTP server
 	ln -s /google/gemma-2-2b-it/ llama.cpp/models/gemma-2-2b-it
 	python convert_hf_to_gguf.py --outtype bf16 google/gemma-2-2b-it/ --outfile models/gemma-2-2b-it/gemma-2-2b-it-bf16.gguf
 	```
-5. Run llama.cpp server
+4. Run llama.cpp server
 	```
 	sudo apt install cmake
 	cd ~/projects/lift/llama.cpp
@@ -125,7 +125,7 @@ At the same time, we need to provide an API call. Llama.cpp provides HTTP server
 	./build/bin/llama-server --list-devices
 	./build/bin/Release/llama-server -m ./models/gemma-2-2b-it/gemma-2-2b-it-bf16.gguf -c 2048 --host 0.0.0.0 --port 8082 --temp 0.7 --top-k 6 --top-p 0.95 --min_p 0.05 --n_predict 128 --repeat-penalty 1 --prompt "Please respond as a patient in a hospital ward. You are feeling dehydrated." --seed 1234 --flash-attn --device Metal
 	```
-6. Call the service
+5. Call the service
 	```
 	curl --request POST --header "Content-Type: application/json" --data "{\"messages\":,\"n_predict\": 128,\"temperature\":0.7,\"top-k\":6,\"top-p\":0.95,\"min_p\":0.05,\"repeat_penalty\":1,\"model\":\"gemma-2-2b-it\",\"stop\":[\"exit\"],\"n_keep\":10,\"dynatemp_range\":0,\"dynatemp_exponent\":1,\"typical_p\":1,\"xtc_probability\":0,\"xtc_threshold\":0.1,\"repeat_last_n\":64,\"presence_penalty\":0,\"frequency_penalty\":0,\"dry_multiplier\":0,\"dry_base\":1.75,\"dry_allowed_length\":2,\"dry_penalty_last_n\":-1,\"cache_prompt\":true}" --url http://localhost:8082/chat/completions
 	```
@@ -155,20 +155,25 @@ At the same time, we need to provide an API call. Llama.cpp provides HTTP server
  	cd ~/Documents/llm
  	git clone https://github.com/ggerganov/llama.cpp.git
  	```
-5. Install Visual Studio, Visual Studio c++, C++ for Windows.
-6. If you have a GPU, reinstall nvidia CUDA toolkit.
+5. Install Visual Studio 2022 with
+    * C++ core features
+    * C++ CMake tools for Windows
+    * Windows 11 SDK
+6. If you have a GPU, download and reinstall NVIDIA CUDA toolkit.
+    * Download and install CUDA Toolkit 12.7 from NVIDIA’s official website.
+    * Verify the installation with ```nvcc --version``` and ```nvidia-smi```.
 7. Download model and create guff.
 	```
 	cd ~/Documents/llm/llama.cpp/
 	huggingface-cli download google/gemma-2-2b-it --local-dir google/gemma-2-2b-it
 	python convert_hf_to_gguf.py --outtype bf16 google/gemma-2-2b-it/ --outfile models/google/gemma-2-2b-it/gemma-2-2b-it-bf16.gguf
 	```
-5. Build llama.cpp server.
+8. Build llama.cpp server.
 	```
 	cmake -B build -DGGML_CUDA=ON
 	cmake --build build --config Release -t llama-server
 	```
-6. Start service
+9. Start service
 	Anaconda Powershell Prompt using administrator
 	```
 	cd ~/Documents/llm/llama.cpp
@@ -179,7 +184,7 @@ At the same time, we need to provide an API call. Llama.cpp provides HTTP server
 	```
 	./build/bin/Release/llama-server.exe --list-devices
 	```
-7. Call the service
+10. Call the service
 	CMD using administrator
 	```
 	curl --request POST --header "Content-Type: application/json" --data "{\"messages\":[{\"role\": \"system\",\"content\": \"Please respond as a patient in a hospital ward. You are feeling dehydrated.\"},{\"role\": \"user\",\"content\": \"Hello. My name is Doctor Lu. I am the doctor taking care of you today. Can I have your name and NRIC number please?\"}],\"n_predict\": 128,\"temperature\":0.7,\"top-k\":6,\"top-p\":0.95,\"min_p\":0.05,\"repeat_penalty\":1,\"model\":\"gemma-2-2b-it\",\"stop\":[\"exit\"],\"n_keep\":10,\"dynatemp_range\":0,\"dynatemp_exponent\":1,\"typical_p\":1,\"xtc_probability\":0,\"xtc_threshold\":0.1,\"repeat_last_n\":64,\"presence_penalty\":0,\"frequency_penalty\":0,\"dry_multiplier\":0,\"dry_base\":1.75,\"dry_allowed_length\":2,\"dry_penalty_last_n\":-1,\"cache_prompt\":true}" --url http://localhost:8082/chat/completions
