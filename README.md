@@ -117,16 +117,19 @@ At the same time, we need to provide an API call. Llama.cpp provides HTTP server
 	ln -s ~/projects/lift/llama.cpp/google/gemma-2-2b-it/ models/gemma-2-2b-it
 	python convert_hf_to_gguf.py --outtype bf16 google/gemma-2-2b-it/ --outfile models/gemma-2-2b-it/gemma-2-2b-it-bf16.gguf
 	```
-4. Run llama.cpp server
+4. Install cmake and compile llama.cpp server
 	```
 	brew install cmake
 	cd ~/projects/lift/llama.cpp
 	cmake -B build
 	cmake --build build --config Release -t llama-server
+ 	```
+5. Run llama.cpp server
+	```
 	./build/bin/llama-server --list-devices
 	./build/bin/Release/llama-server -m ./models/gemma-2-2b-it/gemma-2-2b-it-bf16.gguf -c 2048 --host 0.0.0.0 --port 8082 --temp 0.7 --top-k 6 --top-p 0.95 --min_p 0.05 --n_predict 128 --repeat-penalty 1 --prompt "Please respond as a patient in a hospital ward. You are feeling dehydrated." --seed 1234 --flash-attn --device Metal
 	```
-5. Call the service
+6. Call the service
 	```
 	curl --request POST --header "Content-Type: application/json" --data "{\"messages\":,\"n_predict\": 128,\"temperature\":0.7,\"top-k\":6,\"top-p\":0.95,\"min_p\":0.05,\"repeat_penalty\":1,\"model\":\"gemma-2-2b-it\",\"stop\":[\"exit\"],\"n_keep\":10,\"dynatemp_range\":0,\"dynatemp_exponent\":1,\"typical_p\":1,\"xtc_probability\":0,\"xtc_threshold\":0.1,\"repeat_last_n\":64,\"presence_penalty\":0,\"frequency_penalty\":0,\"dry_multiplier\":0,\"dry_base\":1.75,\"dry_allowed_length\":2,\"dry_penalty_last_n\":-1,\"cache_prompt\":true}" --url http://localhost:8082/chat/completions
 	```
