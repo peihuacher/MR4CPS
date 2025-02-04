@@ -119,7 +119,7 @@ At the same time, we need to provide an API call. Llama.cpp provides HTTP server
 	```
 4. Run llama.cpp server
 	```
-	sudo apt install cmake
+	brew install cmake
 	cd ~/projects/lift/llama.cpp
 	cmake -B build
 	cmake --build build --config Release -t llama-server
