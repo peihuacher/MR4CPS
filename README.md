@@ -112,7 +112,8 @@ At the same time, we need to provide an API call. Llama.cpp provides HTTP server
 	pip install safetensors
 	pip install sentencepiece
 	cd ~/projects/lift/llama.cpp/
-	huggingface-cli download google/gemma-2-2b-it --local-dir google/gemma-2-2b-it
+	huggingface-cli login
+ 	huggingface-cli download google/gemma-2-2b-it --local-dir google/gemma-2-2b-it
 	ln -s google/gemma-2-2b-it/ models/gemma-2-2b-it
 	python convert_hf_to_gguf.py --outtype bf16 google/gemma-2-2b-it/ --outfile models/gemma-2-2b-it/gemma-2-2b-it-bf16.gguf
 	```
