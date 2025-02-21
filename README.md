@@ -101,6 +101,7 @@ At the same time, we need to provide an API call. Llama.cpp provides HTTP server
 	conda create -n llama python=3.9.16 -y
 	conda activate llama
 	conda install mlx
+ 	conda install pytorch torchvision torchaudio 
 	CMAKE_ARGS="-DLLAMA_METAL_EMBED_LIBRARY=ON -DGGML_METAL=on" pip install -U llama-cpp-python==v0.3.1 --no-cache-dir
 	pip install 'llama-cpp-python[server]'
 	pip install numpy==1.24.1
