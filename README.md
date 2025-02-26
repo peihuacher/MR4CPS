@@ -157,42 +157,49 @@ At the same time, we need to provide an API call. Llama.cpp provides HTTP server
  
 3. Download and install git for 64-bit Git for Windows Setup https://git-scm.com/downloads. Install Git by double click on .exe file. Choose all default settings.
    
-4. Open a new Anaconda PowerShell Prompt using administrator. Git clone llama.cpp: 
+4. Go to huggingface.co/setting/tokens > Create new token. Take note of the token and enter when prompted. Open a new Anaconda PowerShell Prompt using administrator. Respond Y when asked "Add token as git credential? (Y/n)".
 	```
-	conda activate conda-llm
- 	mkdir ~/Documents/llm
+ 	conda activate conda-llm
+ 	pip install -U "huggingface_hub[cli]"
+ 	huggingface-cli login
+ 	```
+5. Still in new Anaconda PowerShell Prompt using administrator. Git clone llama.cpp: 
+	```
+	mkdir ~/Documents/llm
  	cd ~/Documents/llm
  	git clone https://github.com/ggerganov/llama.cpp.git
  	```
- 
-5. Download and install Visual Studio 2022 with Individual components https://visualstudio.microsoft.com/vs/community/. Double clikc the .exe file.
+
+6. If you have a GPU, download and install NVIDIA CUDA toolkit from NVIDIA’s official website. https://developer.nvidia.com/cuda-downloads
+    * Operating System: Windows, Architecture: x86_64, Version: 11, Installer Type: exe (local)
+    * Double click cuda_12.8.0_571.96_windows.exe (The exact file version might defer due to new release.)
+    * Relaunch NVIDIA and update NVIDIA driver
+    * Verify the installation with ```nvcc --version``` and ```nvidia-smi``` in Anaconda Powershell Prompt
+  
+7. Download and install Visual Studio Community 2022 with Individual components https://visualstudio.microsoft.com/vs/community/. Double clikc the .exe file.
    - Click on Individual components tab
    - Search and select the components listed below and click Install and Continue:
     * C++ core features
     * C++ CMake tools for Windows
     * MSVC v143 - VS 2022 C++ x64/x86 build tools (Latest)
     * Windows 11 SDK (10.0.26100.0)
-  
-6. If you have a GPU, download and install NVIDIA CUDA toolkit from NVIDIA’s official website. https://developer.nvidia.com/cuda-downloads
-    * Operating System: Windows, Architecture: x86_64, Version: 11, Installer Type: exe (local)
-    * Double click cuda_12.8.0_571.96_windows.exe (The exact file version might defer due to new release.). Choose all default settings.
-    * Update NVIDIA GeForce Game Ready Driver.
-    * Verify the installation with ```nvcc --version``` and ```nvidia-smi```.
       
-7. Download model and create guff.
+8. Download model and create guff.
 	```
-	cd ~/Documents/llm/llama.cpp/
+	conda activate conda-llm
+ 	cd ~/Documents/llm/llama.cpp/
 	huggingface-cli download google/gemma-2-2b-it --local-dir google/gemma-2-2b-it
+ 	mkdir models/google/gemma-2-2b-it/
 	python convert_hf_to_gguf.py --outtype bf16 google/gemma-2-2b-it/ --outfile models/google/gemma-2-2b-it/gemma-2-2b-it-bf16.gguf
 	```
  
-8. Build llama.cpp server.
+9. Build llama.cpp server.
 	```
 	cmake -B build -DGGML_CUDA=ON
 	cmake --build build --config Release -t llama-server
 	```
  
-9. Start service
+10. Start service
 	Anaconda Powershell Prompt using administrator
 	```
 	cd ~/Documents/llm/llama.cpp
@@ -204,7 +211,7 @@ At the same time, we need to provide an API call. Llama.cpp provides HTTP server
 	./build/bin/Release/llama-server.exe --list-devices
 	```
  
-10. Call the service
+11. Call the service
 	CMD using administrator
 	```
 	curl --request POST --header "Content-Type: application/json" --data "{\"messages\":[{\"role\": \"system\",\"content\": \"Please respond as a patient in a hospital ward. You are feeling dehydrated.\"},{\"role\": \"user\",\"content\": \"Hello. My name is Doctor Lu. I am the doctor taking care of you today. Can I have your name and NRIC number please?\"}],\"n_predict\": 128,\"temperature\":0.7,\"top-k\":6,\"top-p\":0.95,\"min_p\":0.05,\"repeat_penalty\":1,\"model\":\"gemma-2-2b-it\",\"stop\":[\"exit\"],\"n_keep\":10,\"dynatemp_range\":0,\"dynatemp_exponent\":1,\"typical_p\":1,\"xtc_probability\":0,\"xtc_threshold\":0.1,\"repeat_last_n\":64,\"presence_penalty\":0,\"frequency_penalty\":0,\"dry_multiplier\":0,\"dry_base\":1.75,\"dry_allowed_length\":2,\"dry_penalty_last_n\":-1,\"cache_prompt\":true}" --url http://localhost:8082/chat/completions
