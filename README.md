@@ -151,7 +151,7 @@ At the same time, we need to provide an API call. Llama.cpp provides HTTP server
 	```
 	conda create -n conda-llm -y
 	conda activate conda-llm
-	conda install pytorch torchvision torchaudio pytorch-cuda=12.4 -c pytorch -c nvidia
+	conda install pytorch torchvision torchaudio pytorch-cuda=12.4 -c pytorch -c nvidia -y
 	pip install sentencepiece 
 	pip install safetensors
 	pip install tqdm
