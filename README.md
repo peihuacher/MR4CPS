@@ -214,6 +214,7 @@ At the same time, we need to provide an API call. Llama.cpp provides HTTP server
 	cp "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8\extras\visual_studio_integration\MSBuildExtensions\*" "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\BuildCustomizations"
  	cmake -B build -DGGML_CUDA=ON -DCMAKE_GENERATOR_TOLLSET="cuda=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8"
 	```
+ 	The next step will take some time. Make sure it will continue to run as you go for a break.
  	```
  	cmake --build build --config Release -t llama-server
 	```
