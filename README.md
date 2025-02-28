@@ -176,12 +176,16 @@ At the same time, we need to provide an API call. Llama.cpp provides HTTP server
     * Relaunch NVIDIA and update NVIDIA driver
     * Verify the installation with ```nvcc --version``` and ```nvidia-smi``` in Anaconda Powershell Prompt
   
-7. Download and install Visual Studio Community 2022 with Individual components https://visualstudio.microsoft.com/vs/community/. Double clikc the .exe file.
+7. Download and install Visual Studio Community 2022 with Individual components https://visualstudio.microsoft.com/vs/community/. Double clikc the .exe file. Restart machine after installation.
    - Workload Tab
      Select checkboxes
+     * Visual Studio core editor
      * Python development
+     * Node.js development
      * .NET desktopdevelopment
-     * Select Desktop development with C++
+     * Desktop development with C++
+     * Mobile development with C++
+     * Data science and analytical applications
    - Individual components Tab
      Search and select the components listed below and click Install and Continue:
     * C++ core features
@@ -205,15 +209,14 @@ At the same time, we need to provide an API call. Llama.cpp provides HTTP server
 
 10. Build llama.cpp server.
 	```
-	cmake -B build -DGGML_CUDA=ON
+	cmake -B build -DGGML_CUDA=ON -DCMAKE_GENERATOR_TOLLSET="cuda=C:\Program Files\NVIDIA GPU COmputing Toolkit\CUDA\v12.8"
 	cmake --build build --config Release -t llama-server
 	```
  
 11. Start service
-	Anaconda Powershell Prompt using administrator
+	Windows PowerShell using administrator
 	```
-	cd ~/Documents/llm/llama.cpp
-	conda activate conda-llm
+	cd %HOMEPATH%/Documents/llm/llama.cpp
 	./build/bin/Release/llama-server.exe -m ./models/google/gemma-2-2b-it/gemma-2-2b-it-bf16.gguf -c 2048 --host 0.0.0.0 --port 8082 --temp 0.7 --top-k 6 --top-p 0.95 --min_p 0.05 --n_predict 128 --repeat-penalty 1 --prompt "Please respond as a patient in a hospital ward. You are feeling dehydrated." --seed 1234 --flash-attn --device CUDA0
 	```
 	To change a GPU device you can use the code below to list the existing devices. 
