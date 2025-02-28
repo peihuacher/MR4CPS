@@ -17,7 +17,7 @@ This is a documentation of the process of tests and determine which is the best 
 [2. Improve the speed of response](#2-improve-the-speed-of-response)\
 	- [llama.cpp](#llamacpp) \
 		- [Installation and run on MacBook Pro M3 Max](#installation-and-run-on-macbook-pro-m3-max)\
-		- [Installation and run on Windows 11 OS with NVIDIA GPU RTX 2080ti](#installation-and-run-on-windows-11-os-with-nvidia-gpu-rtx-2080ti)
+		- [Installation and run on Windows 11 OS with NVIDIA GeForce RTX 4070 Laptop GPU](#installation-and-run-on-windows-11-os-with-nvidia-geforce-rtx-4070-laptop-gpu)
 
 [3. Use local model for speech-to-text and text-to-speech](#3-use-local-model-for-speech-to-text-and-text-to-speech)
 
@@ -139,7 +139,7 @@ At the same time, we need to provide an API call. Llama.cpp provides HTTP server
 [back to contents](#contents)
 
 
-##### Installation and run on Windows 11 OS with NVIDIA GPU RTX 2080ti
+##### Installation and run on Windows 11 OS with NVIDIA GeForce RTX 4070 Laptop GPU
 1. Download miniconda in CMD using administrator. Install the miniconda by double click on miniconda.exe.
 	```
 	curl https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe -o miniconda.exe
@@ -222,7 +222,7 @@ At the same time, we need to provide an API call. Llama.cpp provides HTTP server
 	Windows PowerShell using administrator
 	```
 	cd ~/Documents/llm/llama.cpp
-	./build/bin/Release/llama-server.exe -m ./models/google/gemma-2-2b-it/gemma-2-2b-it-bf16.gguf -c 2048 --host 0.0.0.0 --port 8082 --temp 0.7 --top-k 6 --top-p 0.95 --min_p 0.05 --n_predict 128 --repeat-penalty 1 --prompt "Please respond as a patient in a hospital ward. You are feeling dehydrated." --seed 1234 --flash-attn --device CUDA0
+	./build/bin/Release/llama-server.exe -m ./models/google/gemma-2-2b-it/gemma-2-2b-it-bf16.gguf -c 2048 --host 0.0.0.0 --port 8082 --temp 0.7 --top-k 6 --top-p 0.95 --min_p 0.05 --n_predict 128 --repeat-penalty 1 --seed 1234 --flash-attn --device CUDA0
 	```
 	To change a GPU device you can use the code below to list the existing devices. 
 	```
