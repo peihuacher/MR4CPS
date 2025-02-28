@@ -176,7 +176,7 @@ At the same time, we need to provide an API call. Llama.cpp provides HTTP server
     * Operating System: Windows, Architecture: x86_64, Version: 11, Installer Type: exe (local)
     * Double click cuda_12.8.0_571.96_windows.exe (The exact file version might defer due to new release.)
     * Relaunch NVIDIA and update NVIDIA driver
-    * Verify the installation with ```nvcc --version``` and ```nvidia-smi``` in Anaconda Powershell Prompt
+    * Verify the installation with ```nvcc --version``` and ```nvidia-smi``` in Command Prompt
   
 7. Download and install Visual Studio Community 2022 with Individual components https://visualstudio.microsoft.com/vs/community/. Double clikc the .exe file. Restart machine after installation.
    - Workload Tab
