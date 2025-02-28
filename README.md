@@ -217,7 +217,7 @@ At the same time, we need to provide an API call. Llama.cpp provides HTTP server
 11. Start service
 	Windows PowerShell using administrator
 	```
-	cd %HOMEPATH%/Documents/llm/llama.cpp
+	cd ~/Documents/llm/llama.cpp
 	./build/bin/Release/llama-server.exe -m ./models/google/gemma-2-2b-it/gemma-2-2b-it-bf16.gguf -c 2048 --host 0.0.0.0 --port 8082 --temp 0.7 --top-k 6 --top-p 0.95 --min_p 0.05 --n_predict 128 --repeat-penalty 1 --prompt "Please respond as a patient in a hospital ward. You are feeling dehydrated." --seed 1234 --flash-attn --device CUDA0
 	```
 	To change a GPU device you can use the code below to list the existing devices. 
