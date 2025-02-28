@@ -144,6 +144,7 @@ At the same time, we need to provide an API call. Llama.cpp provides HTTP server
 	```
  	cd %HOMEPATH%/Downloads
 	curl https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe -o miniconda.exe
+ 	miniconda.exe
 	```
  
 2. Create condo environment in Anaconda PowerShell Prompt using administrator.
