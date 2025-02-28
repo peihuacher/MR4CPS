@@ -158,6 +158,9 @@ At the same time, we need to provide an API call. Llama.cpp provides HTTP server
 	```
  
 3. Download and install git for 64-bit Git for Windows Setup https://git-scm.com/downloads. Install Git by double click on .exe file. Choose all default settings.
+   	```
+   	curl https://github.com/git-for-windows/git/releases/download/v2.48.1.windows.1/Git-2.48.1-64-bit.exe
+   	```
    
 4. Go to huggingface.co/setting/tokens > Create new token. Take note of the token and enter when prompted. Open a new Anaconda PowerShell Prompt using administrator. Respond Y when asked "Add token as git credential? (Y/n)".
 	```
