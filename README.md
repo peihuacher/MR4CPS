@@ -209,7 +209,7 @@ At the same time, we need to provide an API call. Llama.cpp provides HTTP server
 
 10. Build llama.cpp server.
 	```
-	cmake -B build -DGGML_CUDA=ON -DCMAKE_GENERATOR_TOLLSET="cuda=C:\Program Files\NVIDIA GPU COmputing Toolkit\CUDA\v12.8"
+	cmake -B build -DGGML_CUDA=ON -DCMAKE_GENERATOR_TOLLSET="cuda=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8"
 	cmake --build build --config Release -t llama-server
 	```
  
