@@ -188,6 +188,7 @@ At the same time, we need to provide an API call. Llama.cpp provides HTTP server
      * Desktop development with C++
      * Mobile development with C++
      * Data science and analytical applications
+     * Linux and embedded development with C++
    - Individual components Tab
      Search and select the components listed below and click Install and Continue:
     * C++ core features
