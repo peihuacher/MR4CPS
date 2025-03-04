@@ -1,5 +1,5 @@
-# vicctor_llm
-VICCTOR is a virtual interactive core procedures training framework. Here we document how we integrate LLM into vicctor.
+# mr4cps_llm
+MR4CPS is a Portable AI-powered Mixed Reality system for Clinical Procedural Skills training. Here we document how we integrate LLM into vicctor.
 
 ## Problem statement
 We have developed a virtual clinical procedure training tool for students to practice procedural skills at home with Meta Quest Mixed Reality Headset. We used a fixed script in database for the user interaction. Wit.AI for text to speech and speech to text. However there are a few issues: 
